@@ -47,9 +47,12 @@ function writePassword(lower, upper, numeric, special, length) {
   
   passwordText.value = password;
 
-  let generatePassword = '';
-
   for(var i = 0; i < length; i += typesCount) {
+    if (typesCount === "YES") {
+      var typesCount = lower + upper + numeric + special;
+      var typesArr = [{lower}, {upper}, {numeric}, {special}].filter
+      
+    }
     typesArr.forEach(type => {
       var password = Object.keys(type)[0];
       console.log('password: ', password);
@@ -57,17 +60,12 @@ function writePassword(lower, upper, numeric, special, length) {
       generatedPassword += random[password]();
     });
   }
-  
-  if (typesCount === "YES") {
-    var typesCount = lower + upper + numeric + special;
-    var typesArr = [{lower}, {upper}, {numeric}, {special}].filter
+
   (item => Object.values(item)[0]); // filters out unchecked/false types
-  }
-  if (typesCount === 0) {
-    return '';
+  if (typesCount === " ") {
+    return " ";
   }
 
-  return generatedPassword;
 }
 
 // Add event listener to generate button
