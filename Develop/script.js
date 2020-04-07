@@ -1,70 +1,23 @@
 // Assignment code here
 
-//ask for character type
-var lower = window.prompt("Contains lower case letters?");
-var upper = window.prompt("Contains upper case letters?");
-var numeric = window.prompt("Contains numbers?");
-var special = window.prompt("Contains special characters?");
-var length = Number(window.prompt("How many characters will your password be? Enter a number between 8 and 128"));
+// VARIABLES & DIALOG BOXES
+var length = prompt("How many characters would you like your password to contain?");
+var special = confirm("Click OK to confirm including special characters.");
+var numeric = confirm("Click OK to confirm including numeric characters.");
+var upperCase = confirm("Click OK to confirm including uppercase characters.");
+var lowerCase = confirm("Click OK to confirm including lowercase characters.");
 
-// OBJECT
-var random = {
-  lower: getRandomLower,
-  upper: getRandomUpper,
-  numeric: getRandomNumeric,
-  special: getRandomSpecial,
-}
 
-// FUNCTIONS
-function getRandomLower() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-}
-console.log(getRandomLower());
-
-function getRandomUpper() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-}
-console.log(getRandomUpper());
-
-function getRandomNumeric() {
-  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-}
-console.log(getRandomNumeric());
-
-function getRandomSpecial() {
-  var special = '!@#$%^&*';
-  return special[Math.floor(Math.random() * special.length)];
-}
-console.log(getRandomSpecial());
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-function writePassword(lower, upper, numeric, special, length) {
+function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  
+
   passwordText.value = password;
-
-  for(var i = 0; i < length; i += typesCount) {
-    if (typesCount === "YES") {
-      var typesCount = lower + upper + numeric + special;
-      var typesArr = [{lower}, {upper}, {numeric}, {special}].filter
-      
-    }
-    typesArr.forEach(type => {
-      var password = Object.keys(type)[0];
-      console.log('password: ', password);
-
-      generatedPassword += random[password]();
-    });
-  }
-
-  (item => Object.values(item)[0]); // filters out unchecked/false types
-  if (typesCount === " ") {
-    return " ";
-  }
 
 }
 
