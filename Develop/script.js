@@ -36,53 +36,58 @@ console.log(getRandomLower());
 
 // Concatenate
 generatePassword = function() {
-  for (var i = 0; i < passwordLength; i++) {
-    if (special && numeric && upperCase && lowerCase) {
-     var selection = randomNumber(special + numeric + upperCase + lowerCase);
-    }
-    else if (special && numeric && upperCase) {
-      selection = randomNumber(special + numeric + upperCase);
-    }
-    else if (special && numeric && lowerCase) {
-      selection = randomNumber(special + numeric + lowerCase);
-    }
-    else if (special && upperCase && lowerCase) {
-      selection = randomNumber(special + upperCase + lowerCase);
-    }
-    else if (special && numeric) {
-      selection = randomNumber(special + numeric);
-    }
-    else if (special && lowerCase) {
-      selection = randomNumber(special + lowerCase);
-    }
-    else if (special && upperCase) {
-      selection = randomNumber(special + upperCase);
-    }
-    else if (numeric && upperCase && lowerCase) {
-      selection = randomNumber(numeric + upperCase + lowerCase);
-    }
-    else if (numeric && upperCase) {
-      selection = randomNumber(numeric + upperCase);
-    }
-    else if (numeric && lowerCase) {
-      selection = randomNumber(numeric + lowerCase);
-    }
-    else if (upperCase && lowerCase) {
-      selection = randomNumber(upperCase + lowerCase);
-    }
-    else if (special || numeric || upperCase || lowerCase) {
-      selection = randomNumber(special);
-      selection = randomNumber(numeric);
-      selection = randomNumber(upperCase);
-      selection = randomNumber(lowerCase);
-    }
+  if (special && numeric && upperCase && lowerCase) {
+    var selection = special + numeric + upperCase + lowerCase;
   }
-};
+  else if (special && numeric && upperCase) {
+    selection = special + numeric + upperCase;
+  }
+  else if (special && numeric && lowerCase) {
+    selection = special + numeric + lowerCase;
+  }
+  else if (special && upperCase && lowerCase) {
+    selection = special + upperCase + lowerCase;
+  }
+  else if (special && numeric) {
+    selection = special + numeric;
+  }
+  else if (special && lowerCase) {
+    selection = special + lowerCase;
+  }
+  else if (special && upperCase) {
+    selection = special + upperCase;
+  }
+  else if (numeric && upperCase && lowerCase) {
+    selection = numeric + upperCase + lowerCase;
+  }
+  else if (numeric && upperCase) {
+    selection = numeric + upperCase;
+  }
+  else if (numeric && lowerCase) {
+    selection = numeric + lowerCase;
+  }
+  else if (upperCase && lowerCase) {
+    selection = upperCase + lowerCase;
+  }
+  else if (special || numeric || upperCase || lowerCase) {
+    selection = special;
+    selection = numeric;
+    selection = upperCase;
+    selection = lowerCase;
+  }
 
-//function to generate a random numeric value
-var randomNumber = function(min, max) {
-  password = Math.floor(Math.random() * (max - min + 1) + min);
-  return password;
+  for (var i = 0; i < passwordLength; i++) {
+    selection.value = Math.floor(Math.random() * selection.length);
+  
+  return selection.value;
+  }
+
+};
+  
+// This puts the password value into the textbox
+// Changed function input to use textcontent
+function UserInput(ps) {
+  document.getElementById("placeholder").textArea = ps;
 }
 
 // Get references to the #generate element 
